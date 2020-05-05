@@ -47,3 +47,21 @@ body {
   padding: 5px;
   border-radius: 5px;
 }
+
+footer {
+  border-top: #e6beae 3px solid;
+  opacity: 0.8;
+}
+
+.contact_us,
+.contact_button {
+  display: inline-block;
+}
+
+@media only screen and (max-width: 768px) {
+  .contact_us,
+  .contact_button {
+    display: block;
+    width: 100%;
+  }
+}
