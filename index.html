@@ -20,8 +20,11 @@
     <title>CoffeeLab</title>
   </head>
 
-  <body>
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+  <body data-spy="scroll" data-target="#main-nav" id="home">
+    <nav
+      class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top"
+      id="main-nav"
+    >
       <div class="container">
         <a href="index.html" class="navbar-brand">CoffeeLab</a>
         <button
@@ -38,7 +41,7 @@
               <a href="#explore-head-section" class="nav-link">Explore</a>
             </li>
             <li class="nav-item">
-              <a href="#share-head-section" class="nav-link">Share</a>
+              <a href="#create-head-section" class="nav-link">Share</a>
             </li>
           </ul>
         </div>
@@ -343,6 +346,28 @@
     <script>
       // Get the current year for the copyright
       $("#year").text(new Date().getFullYear());
+
+      //Init scroll spy
+      $("body").scrollspy({ target: "#main-nav" });
+
+      // Smooth Scrolling
+      $("#main-nav a").on("click", function (event) {
+        if (this.hash !== "") {
+          event.preventDefault();
+
+          const hash = this.hash;
+
+          $("html, body").animate(
+            {
+              scrollTop: $(hash).offset().top,
+            },
+            800,
+            function () {
+              window.location.hash = hash;
+            }
+          );
+        }
+      });
     </script>
   </body>
 </html>
